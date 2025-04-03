@@ -300,6 +300,7 @@
             buttonDelete.TabIndex = 18;
             buttonDelete.Text = "Del";
             buttonDelete.UseVisualStyleBackColor = false;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonC
             // 

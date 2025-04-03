@@ -6,6 +6,7 @@ namespace ProjectCalculator
         Double var1 = 0.0;
         Double varHasil = 0.0;
         String operations = "";
+        bool isActive;
 
         public FormKalkulator()
         {
@@ -19,7 +20,19 @@ namespace ProjectCalculator
 
         private void buttonOnOff_Click(object sender, EventArgs e)
         {
+            isActive = !isActive;
 
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button)
+                {
+                    ctrl.Enabled = isActive;
+                }
+                else
+                {
+                    ctrl.Enabled = !isActive;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -148,6 +161,14 @@ namespace ProjectCalculator
             var1 = Convert.ToDouble(stringVar);
             stringVar = "";
             textBoxDisplay.Text = "0";
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (textBoxDisplay.Text.Length > 0)
+            {
+                textBoxDisplay.Text = textBoxDisplay.Text.Remove(textBoxDisplay.Text.Length - 1);
+            }
         }
     }
 }
